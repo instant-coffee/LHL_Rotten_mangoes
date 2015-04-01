@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>RottenMangoes</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/css/bootstrap.min.css" rel="stylesheet">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,6 +13,8 @@
     <%= content_tag(:div, value) %>
   <% end %>
   <%= yield %>
+  <%= render 'layouts/footer' %>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/js/bootstrap.min.js"></script>
 
 </body>
 </html>
