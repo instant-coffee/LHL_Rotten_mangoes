@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :restrict_admin_access, only: [:index, :show, :update, :destroy]
+  before_filter :admin_access, only: [:index, :show, :update, :destroy]
 
   def index
     @users = User.page(params[:page])

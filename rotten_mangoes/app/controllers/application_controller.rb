@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def restrict_admin_access
+  def admin_access
     unless current_user && current_user.admin?
       redirect_to movies_path, notice: 'You must be admin to access admin pages'
     end

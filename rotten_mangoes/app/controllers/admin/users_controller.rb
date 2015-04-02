@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 
-  before_filter :restrict_admin_access
+  before_filter :admin_access
 
   def new
     @user = User.new
