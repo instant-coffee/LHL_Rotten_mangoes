@@ -2,21 +2,22 @@ Rails.application.routes.draw do
 
   root to: 'movies#index'
 
-  get 'reviews/new'
-
-  get 'reviews/create'
-
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
-
-  resources :users, only: [:new, :create]
   
+  resources :users, only: [:index, :new, :create, :show, :update, :destroy]
+
   namespace :admin do
-    resources :users, only: [:new, :create]
+    resources :users, only: [:new, :create, :edit]
   end
 
-  resources :sessions, only: [ :new, :create, :destroy ]
+  resource :session, only: [:new, :create, :destroy] do
+    member do
+      post 'create_persona'
+      delete 'destroy_persona'
+    end
+  end
   
 
   
