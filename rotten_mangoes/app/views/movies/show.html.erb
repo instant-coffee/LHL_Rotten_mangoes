@@ -1,8 +1,9 @@
 <%= link_to "Back to all movies", movies_path %><br/>
 
-<div class="container col-md-10">
-<div class="well col-md-9">
+<div class="container col-lg-12">
+<div class="well col-lg-10">
 <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
+<%= link_to image_tag(@movie.image), movie_path(@movie) %>
 <h2><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>)</h2>
 <h3><%= formatted_date( @movie.release_date ) %></h3>
 <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
@@ -12,7 +13,7 @@
 
 <hr>
 
-<div class="container col-md-offset-3">
+<div class="container col-lg-offset-2">
 <h3>Reviews of <em><%= @movie.title %></em></h3>
 <% if current_user %>
   <% @movie.reviews.each do |review| %>
