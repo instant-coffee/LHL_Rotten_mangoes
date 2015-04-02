@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'movies#index'
+
   get 'reviews/new'
 
   get 'reviews/create'
@@ -8,8 +10,16 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  resources :users, only: [ :new, :create ]
+  resources :users, only: [:new, :create]
+  
+  namespace :admin do
+    resources :users, only: [:new, :create]
+  end
+
   resources :sessions, only: [ :new, :create, :destroy ]
-  root to: 'movies#index'
+  
+
   
 end
+
+
