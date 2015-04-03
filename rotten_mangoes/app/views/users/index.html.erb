@@ -1,7 +1,9 @@
 <h1>Rotten Mangoes</h1>
 <h2>Users</h2>
+
+<div class="container col-lg-10">
 <%= paginate @users %>
-<table>
+<table class="table table-striped">
 <% @users.each do |user| %>
   <tr>
   <td><%= link_to "Show user", user_path(user) %></td>
@@ -14,3 +16,4 @@
   </tr>
 <% end %>
 </table>
+</div>
