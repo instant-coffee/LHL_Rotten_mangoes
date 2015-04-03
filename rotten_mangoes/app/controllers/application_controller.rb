@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def admin_access
     unless current_user && current_user.admin?
-      redirect_to movies_path, notice: 'You must be admin to access admin pages'
+      redirect_to movies_path, notice: 'You must be a boss to access admin pages'
     end
   end
 
